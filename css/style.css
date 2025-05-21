@@ -454,9 +454,9 @@ footer {
         grid-column: span 1;
     }
 
-    header {
+    /* header {
         margin-top: 0;
-    }
+    } */
 
     article {
         padding: 10px;
@@ -514,4 +514,148 @@ footer {
         text-align: center;
         margin-top: 10px;
     }
+
+    /* Adjustments for article pages on mobile */
+    .article-page-header h1 {
+        font-size: 2em; /* Reduce from 2.5em */
+    }
+
+    .article-content-wrapper article p {
+        font-size: 1em; /* Reduce from 1.1em */
+        line-height: 1.6; /* Adjust if needed */
+    }
+
+    .potion-dropcap {
+        font-size: 3.5em; /* Reduce from 4.5em */
+        line-height: 0.75; /* Adjust line height accordingly */
+    }
+}
+
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+/* Styles for Individual Article Pages             */
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+.article-page-header h1 {
+    font-family: "Warsaw Gothic", serif;
+    text-align: center;
+    font-size: 2.5em;
+    padding: 15px 0;
+    border-bottom: 1px dotted #000;
+    margin: 0 0 20px 0;
+    color: #333;
+}
+
+.article-content-wrapper {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #fdfdfa;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    border-radius: 4px;
+}
+
+.article-content-wrapper article {
+    padding: 0;
+    border-bottom: none;
+}
+
+.article-content-wrapper article img {
+    height: auto;
+    object-fit: contain;
+    max-width: 100%;
+    display: block;
+    margin: 20px auto;
+}
+
+.article-content-wrapper article p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 1.5em;
+}
+
+.article-content-wrapper article p.byline {
+    font-size: 1em;
+    text-align: right;
+    margin-top: 2em;
+}
+
+.article-content-wrapper .back-to-home {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 20px;
+    background-color: #4a4a4a; /* Slightly lighter base color */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-family: "Warsaw Gothic", serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease; /* Added transition */
+    text-align: center; /* Ensure text is centered if padding makes it look off */
+}
+
+.article-content-wrapper .back-to-home:hover {
+    background-color: #b8860b; /* Goldenrod color on hover - more thematic */
+    color: #000; /* Black text on golden hover for contrast */
+    transform: scale(1.05); /* Slight zoom effect */
+}
+
+.article-content-wrapper .back-to-home::before {
+    display: none;
+}
+
+.article-page-footer p {
+    text-align: center;
+    font-size: 0.9em;
+    color: #777;
+    padding: 15px 0;
+    border-top: 1px dotted #000;
+    margin-top: 30px;
+}
+
+/* Themed Drop Cap for Potion Article */
+.potion-dropcap {
+    float: left;
+    font-family: "Playfair Display", serif; /* Or another suitably decorative font */
+    font-size: 4.5em; /* Larger than standard drop cap */
+    line-height: 0.8; /* Adjust for alignment */
+    margin-right: 0.05em;
+    margin-bottom: -0.1em; /* Fine-tune bottom alignment */
+    padding: 0.1em 0.15em;
+    color: #4a0079; /* Deep purple */
+    background-color: #e0cff0; /* Light lavender background */
+    border-radius: 50% 50% 50% 20%/50% 50% 20% 50%; /* Irregular bubble/droplet shape */
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3), 
+                inset 1px 1px 2px rgba(255,255,255,0.5); /* Subtle 3D effect */
+    text-shadow: 1px 1px 1px rgba(255,255,255,0.4); /* Highlight */
+    position: relative; /* For pseudo-elements if needed */
+    animation: potionFloat 5s ease-in-out infinite; /* Subtle floating animation */
+}
+
+@keyframes potionFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+/* Ensure paragraph flows around it nicely */
+/* Using a more specific selector for the paragraph containing the potion dropcap */
+.article-content-wrapper article p:has(span.potion-dropcap) {
+    overflow: hidden; /* To contain the floated dropcap properly */
+}
+
+/* Themed Image for Quidditch Article */
+.quidditch-image {
+    border: 4px solid #b8860b; /* Golden border */
+    border-radius: 8px; /* Slightly rounded corners for the border */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.quidditch-image:hover {
+    transform: scale(1.03); /* Slight zoom */
+    box-shadow: 0 0 15px #ffd700, 0 0 25px #b8860b; /* Golden glow */
 }
